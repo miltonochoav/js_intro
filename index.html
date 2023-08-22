@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Fundamentos JavaScript</h1>
+    <h4>Primera actividad del curso de desarrollo web</h4>
+    <h4>Estudiante: Milton Ochoa</h4>
+    <p>
+      Para ver el contenido del ejercicio abrir con Live Server, dar clic en
+      inspeccionar e ir a consola.
+    </p>
+
+    <h4>Descripción de la actividad:</h4>
+
+    <p>
+      Crear un archivo de JavaScript que contenga lo siguiente: Declaración de
+      variables usando las palabras clave const y let. Leer los condicionales
+      que existen en JavaScript del link entregado, y de cada uno realizar un
+      ejemplo, distinto al de la página, usando los condicionales en JavaScript.
+    </p>
+
+    <p>
+      El archivo a entregar debe estar consignado en GitHub. Se entrega en esta
+      tarea sólo el enlace al repositorio de GitHub.
+    </p>
+
+    <script>
+      /*A continuación ejemplo de por qué utilizar 'let' 
+      y no 'var' para declarar variables.
+      Pues 'var' declara en el ambito global 
+      y puede ocacionar problemas de reasignación de valores.
+      El uso de 'let' corrige ese problema
+      y respeta la declaración de variables en ambito local o de bloque.
+      */
+
+      console.log("***** var *****");
+
+      var musica = "Rock";
+      console.log("Variable música antes del bloque ", musica);
+      {
+        var musica = "Pop";
+        console.log("Variable música en el bloque ", musica);
+      }
+      console.log("Variable música después del bloque ", musica);
+      /*Podemos ver que usando 'var' la declaración de variables
+      no respeta el ambito local o de bloque
+      pues el valor de musica después del bloque
+      debería conservar el valor que se le dió antes del bloque
+      y el valor que se le dio dentro del bloque
+      sólo debería aplicar para ese ambito,
+      es decir, sólo dentro del bloque*/
+
+      console.log("***** let *****");
+      /*Usando 'let' vemos que sí se respeta la reasignación de valores
+      en ambito local o de bloque, y eso es lo deseable.
+      Por lo tanto se debe usar 'let' y no 'var'.
+      Usar 'var' ahora se considera una mala práctica.*/
+      let musica2 = "Rock";
+      console.log("Variable música antes del bloque ", musica2);
+      {
+        let musica2 = "Pop";
+        console.log("Variable música en el bloque ", musica2);
+      }
+      console.log("Variable música después del bloque ", musica2);
+
+      console.log("***** CONDICIONALES *****");
+
+      console.log("***** Operador condicional (ternario) *****");
+      /*
+        El operador condicional (ternario) 
+        es el único operador en JavaScript que tiene tres operandos. 
+        Este operador se usa con frecuencia como atajo para la instrucción if.
+
+        Sintaxis:
+        condición ? expr1 : expr2
+
+        Descripción:
+        Si la condición es true, el operador retorna el valor de la expr1; 
+        de lo contrario, devuelve el valor de expr2. 
+        
+        Por ejemplo, para mostrar un mensaje diferente 
+        en función del valor de la variable esSocio, 
+        se puede usar esta declaración:
+        */
+
+      let esSocio = false;
+      console.log("La cuota es de " + (esSocio ? "$20.000" : "$80.000"));
+      esSocio = true;
+      console.log("La cuota es de " + (esSocio ? "$20.000" : "$80.000"));
+
+      console.log("***** if else *****");
+
+      const estamosEn2009 = false;
+
+      if (estamosEn2009) {
+        console.log("Es verdad, estamos en 2009");
+      } else {
+        console.log("Falso, en realidad estamos en 2023");
+      }
+
+      console.log("***** Operador lógico OR || *****");
+      /*
+      El operador lógico OR || comprueba dos valores 
+      y devuelve un valor booleano. 
+      Si uno o ambos valores son verdaderos, devuelve verdadero. 
+      Si ambos valores son falsos, devuelve falso.
+      */
+      true || false; // true
+      true || true; //true
+      false || false; // false
+
+      2 > 1 || 1 > 2; // true
+      2 > 1 || 2 > 2; // true
+      2 > 2 || 2 > 2; // false
+
+      const a = 1;
+      const b = 2;
+      const c = -5;
+
+      console.log(b > a || a > b);
+      console.log(b > a || b > b);
+      console.log(b > b || b > b);
+
+      console.log("***** Operador lógico AND && *****");
+
+      /*
+      El operador lógico ADN && comprueba dos valores 
+      y devuelve un valor booleano. 
+      Si ambos valores son verdaderos, devuelve verdadero.
+      Si uno de los dos es falso, devuelve falso. 
+      Si ambos valores son falsos, devuelve falso.
+      */
+
+      console.log(a > 0 && b > 0);
+      console.log(a > 0 && c > 0);
+      console.log(a > 10 && c > 0);
+
+      console.log("***** Funciones *****");
+
+      const estudiantes = ["Mauricio", "Milton", "Cristina", "Steward"];
+      console.log(estudiantes.map((estudiante) => estudiante));
+      console.log(estudiantes.pop());
+      console.log(estudiantes);
+      estudiantes.push("Camilo");
+
+      console.log(estudiantes);
+      const edades = [41, 41, 32, 21];
+      console.log(edades.map((edad) => edad));
+    </script>
+  </body>
+</html>
